@@ -258,6 +258,14 @@ def main():
         st.markdown("---")
         st.subheader("3️⃣ Content")
         text_input = st.text_area("📝 Enter Text (Unlimited words)", height=300)
+        
+        # Display paragraph and character counts
+        if text_input:
+            paragraphs = count_paragraphs(text_input)
+            num_paragraphs = len(paragraphs)
+            num_characters = len(text_input)
+            st.info(f"📊 **Paragraphs:** {num_paragraphs} | **Characters:** {num_characters}")
+        
         video_file = st.file_uploader("🎥 Upload Video (Max 2GB, 1 Hour)", type=["mp4", "mov", "avi"])
 
     if st.button("🚀 Start Processing", key="process_btn"):
